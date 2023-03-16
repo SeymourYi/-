@@ -1,0 +1,26 @@
+//指针练习       如何指三层输出hello new world
+#include<stdio.h>
+void A(void (*q)())
+{
+		printf("hello");
+		q();
+}
+void B()
+{
+	printf(" new");
+	
+}
+void C()
+{
+	printf(" world");
+}
+
+int main()
+{ 
+A(B);
+ C();
+
+}
+//来自一位印度大师。
+//指的你明明白白。
+//我不会。
