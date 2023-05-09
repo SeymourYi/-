@@ -1,0 +1,37 @@
+import os  # on where to go
+import random
+
+c = {
+    "Alabama": "Montgomery",
+    "Alaska": "Juneau",
+    "Arizona": "Phoenix",
+    "Arkansas": "Little Rock",
+    "California": "Sacramento",
+    "Colorado": "Denver",
+    "Connecticut": "Hartford",
+}
+dir = "D:\\123\\3\\quize"  # make dir and file
+st = list(c.keys())
+random.shuffle(st)
+fn = f"quize.txt"
+fq = f"{dir}/{fn}"
+with open(fq, "w") as qfile:
+    for qn in range(0, 7):
+        qfile.write(f"{qn+1}.states of {st[qn]}'s capitals is?\n\n")
+        e = st[qn]
+        index = None
+        for i, k in enumerate(c):
+            if k == e:
+                index = i
+        cpp = list(c.values())
+        cp = cpp[index]
+        print(cp)
+        del cpp[index]
+        uncp = cpp
+        wcp = random.sample(uncp, 3)
+        cp = [cp]
+        op = wcp + cp
+        random.shuffle(op)
+        for i in range(4):
+            qfile.write(f"{'ABCD'[i]}.{op[i]} \n")
+qfile.close()
